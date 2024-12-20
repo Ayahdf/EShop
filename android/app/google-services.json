@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "289895469426",
+    "project_id": "fbeshop-8c401",
+    "storage_bucket": "fbeshop-8c401.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289895469426:android:60c2d31406ecd99c61cdeb",
+        "android_client_info": {
+          "package_name": "com.example.eshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3fIvY2zpU5W8at7QiM9iWj46IrGZ80Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
