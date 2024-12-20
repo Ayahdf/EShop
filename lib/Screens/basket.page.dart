@@ -26,45 +26,46 @@ class BasketPage extends StatelessWidget {
 
           final items = snapshot.data!.docs;
           double total = items.fold(
-            0.0,
-            (sum, item) => sum + (item['price'] as num),
-          );
+              0.0,
+              (sum, item) => sum + (item['price'] as num), // Calcul avec conversion explicite
+            );
 
-          return Column(
-            children: [
-              Expanded(
-                child: ListView.builder(
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    final item = items[index];
-                    return ListTile(
-                      leading: Image.network(item['image'], width: 50, height: 50, fit: BoxFit.cover),
-                      title: Text(item['title']),
-                      subtitle: Text('Taille : ${item['size']} - ${item['price']} €'),
-                      trailing: IconButton(
-                        icon: Icon(Icons.delete, color: Colors.red),
-                        onPressed: () {
-                          FirebaseFirestore.instance
-                              .collection('users')
-                              .doc(userId)
-                              .collection('basket')
-                              .doc(item.id)
-                              .delete();
-                        },
-                      ),
-                    );
-                  },
+            return Column(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      final item = items[index];
+                      return ListTile(
+                        leading: Image.network(item['image'], width: 50, height: 50, fit: BoxFit.cover),
+                        title: Text(item['title']),
+                        subtitle: Text('Taille : ${item['size']} - ${item['price']} €'),
+                        trailing: IconButton(
+                          icon: Icon(Icons.delete, color: Colors.red),
+                          onPressed: () {
+                            FirebaseFirestore.instance
+                                .collection('users')
+                                .doc(userId)
+                                .collection('basket')
+                                .doc(item.id)
+                                .delete();
+                          },
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'Total : ${total.toStringAsFixed(2)} €',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Total : ${total.toStringAsFixed(2)} €',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-            ],
-          );
+              ],
+            );
+
         },
       ),
     );

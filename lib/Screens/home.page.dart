@@ -20,33 +20,34 @@ class HomePage extends StatelessWidget {
 
           final clothes = snapshot.data!.docs;
 
-          return ListView.builder(
-            itemCount: clothes.length,
-            itemBuilder: (context, index) {
-              final item = clothes[index];
-              final data = item.data() as Map<String, dynamic>;
-              return Card(
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                child: ListTile(
-                  leading: Image.network(
-                    data['image'],
-                    width: 50,
-                    height: 50,
-                    fit: BoxFit.cover,
-                  ),
-                  title: Text(data['title']),
-                  subtitle: Text('Taille : ${data['size']} - Prix : ${data['price']} €'),
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/details',
-                      arguments: data,
-                    );
-                  },
+return ListView.builder(
+  itemCount: clothes.length,
+  itemBuilder: (context, index) {
+    final item = clothes[index];
+    final data = item.data() as Map<String, dynamic>;
+          return Card(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              child: ListTile(
+                leading: Image.network(
+                  data['image'],
+                  width: 50,
+                  height: 50,
+                  fit: BoxFit.cover,
                 ),
-              );
-            },
-          );
+                title: Text(data['title']),
+                subtitle: Text('Taille : ${data['size']} - Prix : ${data['price']} €'),
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/details',
+                    arguments: data,
+                  );
+                },
+              ),
+            );
+          },
+        );
+
         },
       ),
       bottomNavigationBar: BottomNavigationBar(

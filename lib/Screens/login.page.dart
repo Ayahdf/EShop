@@ -56,12 +56,12 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'Email'),
+              decoration: InputDecoration(labelText: 'Login'),
             ),
             TextField(
               controller: _passwordController,
               obscureText: true,
-              decoration: InputDecoration(labelText: 'Mot de passe'),
+              decoration: InputDecoration(labelText: 'Password'),
             ),
             SizedBox(height: 20),
             ElevatedButton(

@@ -6,6 +6,7 @@ import 'package:eshop/Screens/login.page.dart';
 import 'package:eshop/Screens/home.page.dart';
 import 'package:eshop/Screens/detail.page.dart';
 import 'package:eshop/Screens/basket.page.dart';
+import 'package:eshop/Screens/profile.page.dart';
 
 
 
@@ -36,7 +37,10 @@ class MyApp extends StatelessWidget {
         '/details': (context) => DetailsPage(
         item: ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>,
       ),
+        '/profile': (context) => const ProfilePage(),
+
        '/basket': (context) => BasketPage(userId: FirebaseAuth.instance.currentUser!.uid),
+
       },
     );
   }
