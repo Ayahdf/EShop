@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _cityController = TextEditingController();
 
   String _login = '';
-  String _password = '****'; // Masqué pour des raisons de sécurité
+  final String _password = '****'; // Masqué pour des raisons de sécurité
   bool _isLoading = true;
 
   @override
@@ -113,10 +113,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    TextField(
+                    const TextField(
                       obscureText: true,
                       readOnly: true,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Password',
                         hintText: '****',
                         border: OutlineInputBorder(),

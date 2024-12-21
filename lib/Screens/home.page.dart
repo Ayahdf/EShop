@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Acheter des vêtements')),
+      appBar: AppBar(title: const Text('Acheter des vêtements')),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('clothes').snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return Center(child: Text('Aucun vêtement disponible.'));
+            return const Center(child: Text('Aucun vêtement disponible.'));
           }
 
           final clothes = snapshot.data!.docs;
@@ -26,7 +26,7 @@ return ListView.builder(
     final item = clothes[index];
     final data = item.data() as Map<String, dynamic>;
           return Card(
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               child: ListTile(
                 leading: Image.network(
                   data['image'],
