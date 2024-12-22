@@ -56,4 +56,4 @@ Pour tester l'authentification, utilisez les informations suivantes :
 ## Installation
 1. Clonez le repository :
    ```bash
-   git clone https://github.com/username/eshop_flutter.git
+   git clone https://github.com/Ayahdf/EShop.git
