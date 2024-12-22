@@ -1,0 +1,6 @@
+pants
+shirt
+shoes
+shorts
+sneakers
+t-shirt

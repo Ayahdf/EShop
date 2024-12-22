@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'addclothingscreen.page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -176,6 +177,16 @@ class _ProfilePageState extends State<ProfilePage> {
                         style: TextStyle(color: Colors.red),
                       ),
                     ),
+                       ElevatedButton(
+                        onPressed: () {
+                          // Naviguer vers l'écran d'ajout de vêtement
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => AddClothingScreen()),
+                          );
+                        },
+                        child: const Text("Ajouter un vêtement"),
+                      ),
                   ],
                 ),
               ),

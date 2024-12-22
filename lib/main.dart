@@ -7,10 +7,7 @@ import 'package:eshop/Screens/home.page.dart';
 import 'package:eshop/Screens/detail.page.dart';
 import 'package:eshop/Screens/basket.page.dart';
 import 'package:eshop/Screens/profile.page.dart';
-
-
-
-
+import 'package:eshop/Screens/addclothingscreen.page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,12 +32,13 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginPage(),
         '/home': (context) => const HomePage(),
         '/details': (context) => DetailsPage(
-        item: ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>,
-      ),
+              item: ModalRoute.of(context)!.settings.arguments
+                  as Map<String, dynamic>,
+            ),
         '/profile': (context) => const ProfilePage(),
-
-       '/basket': (context) => BasketPage(userId: FirebaseAuth.instance.currentUser!.uid),
-
+        '/basket': (context) =>
+            BasketPage(userId: FirebaseAuth.instance.currentUser!.uid),
+        '/addclothingscreen': (context) => AddClothingScreen(),
       },
     );
   }
